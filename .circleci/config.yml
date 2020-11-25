@@ -11,11 +11,11 @@ jobs:
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-         name: Chmod permissions  
+         name: chmod permissions  
          command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: sudo chmod +x ./gradlew
       - save_cache:
           paths:
             - ~/.gradle
